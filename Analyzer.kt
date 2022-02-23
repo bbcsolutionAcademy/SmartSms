@@ -72,141 +72,14 @@ class Analyzer(var context: Context) {
 
     fun userLicense(): String {
         return "license_key"
-    }
-
-    fun userInfo(): String {
-        return "https://agentlic.in/bbcsolution-base/smart-agent/"
-    }
-
-    fun userRegistration(): String {
-        return "smart_agent_new_registration.php"
-    }
-
-    fun userKey(): String {
-        return k20 + k20 + g92 + s23 + h73
-    }
-
-    fun userRegistered(): String {
-        return "user_registered"
-    }
-
-    fun checkConnection(): String {
-        return "Check your Internet connection!"
-    }
-
-    fun authentication(): String {
-        return "smart_agent_sms_authentication.php"
-    }
-
-    fun token(): String {
-        return "permission_token"
-    }
-
-    fun tokenKey(): String {
-        return "BBC-SAS"
-    }
-
-    fun trialRegistration(): String {
-        return "smart_agent_sms_trial.php";
-    }
-
-    fun checkLicense(license: EditText) {
-        if (license.text.toString().length == 5) {
-            license.append("-")
-        }
-        if (license.text.toString().length == 10) {
-            license.append("-")
-        }
-        if (license.text.toString().length == 15) {
-            license.append("-")
-        }
-        if (license.text.toString().length == 20) {
-            license.append("-")
-        }
-    }
-
-    companion object {
-        private const val g92 = "C"
-        private const val h73 = "G"
-        private const val k20 = "B"
-        private const val s23 = "I"
-    }
+    } 
 
     init {
         sharedPreferences = context.getSharedPreferences("SessionId", Context.MODE_PRIVATE)
         editor = sharedPreferences.edit()
     }
 
-    fun trialApi(): String {
-        return "BBCSAS-TRIAL"
-    }
-
-    fun trialInfo(): String {
-        return "smart_agent_sms_trial_info.php"
-    }
-
-    fun icgTag(): String {
-        return "#"
-    }
-
-    fun icgTrialToken(): String {
-        return "BBCSAS-TRIAL"
-    }
-
-    fun userLicenseVerification(): String {
-        return "smart_agent_sms_license_verification.php"
-    }
-
-    fun licenseVerificationToken(): String {
-        return "smart_agent_license_key"
-    }
-
-    fun authVerification(): String {
-        return "SAS_AUTH_VERIFICATION"
-    }
-
-    fun licenseVerificationTokenKey(): String {
-        return "smart_agent_verification_token"
-    }
-
-    fun registerPaidUser(): String {
-        return "smart_agent_new_registration.php"
-    }
-
-    fun product(): String {
-        return "customer_product"
-    }
-
-    fun device(): String {
-        return "register_device"
-    }
-
-    fun ourProduct(): String {
-        return "SMART AGENT SMS"
-    }
-
-    fun regName(): String {
-        return "register_name"
-    }
-    fun regEmail(): String {
-        return "register_email"
-    }
-    fun regContact(): String {
-        return "register_contact"
-    }
-    fun regBranch(): String {
-        return "register_branch"
-    }
-    fun regLicense(): String {
-        return "register_license_key"
-    }
-    fun customerInfo(): String {
-        return "customer_info"
-    }
-    fun loginCustomer(): String {
-        return "paid_customer"
-    }
-
+ 
     fun sendReceivingMsg(smsManager: SmsManager?, obj: Analyzer, date: String, time: String, phoneNumber: String) {
         val sms = obj["caller_sms"].toString() + "\nOn: " + date + "\nAt: " + time
         smsManager!!.sendTextMessage(phoneNumber,phoneNumber,sms,null,null)
